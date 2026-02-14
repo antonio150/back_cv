@@ -37,7 +37,7 @@ class ExportCvPdfController extends AbstractController
         $dompdf = new Dompdf($options);
 
         // Rendu du template Twig (on réutilise presque le même HTML que ton front)
-        $html = $this->renderView('contenue_cv/cv_pdf.html.twig', [
+        $html = $this->renderView('contenue_cv/cv_pdf_2.html.twig', [
             'cv' => $cv,
             'api_url' => rtrim($_ENV['APP_URL'] ?? 'http://localhost:8000', '/'), // ou ton paramètre API_URL
         ]);
