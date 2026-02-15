@@ -19,6 +19,10 @@ class DeleteContenueCVController extends AbstractController
         }
 
         // Supprimer les entités enfants liées avant de supprimer le ContenueCV
+
+        if($cv->getPhoto()){
+            $em->remove($cv->getPhoto());
+        }
         
         // Supprimer BiographieSuite liées à la Biographie
         if ($cv->getBiographie()) {

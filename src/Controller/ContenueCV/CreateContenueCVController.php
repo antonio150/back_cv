@@ -150,6 +150,9 @@ class CreateContenueCVController extends AbstractController
                     $e->setDuree(isset($item['duree']) ? (int)$item['duree'] : null);
                     $e->setTitre($item['titre'] ?? null);
                     $e->setDescription($item['description'] ?? null);
+                    $e->setPosteActuel(
+                        filter_var($item['posteActuel'] ?? false, FILTER_VALIDATE_BOOLEAN)
+                    );
                     $e->setTypeTravail($item['typeTravail'] ?? null);
                     $e->setExperience($exp);
                     $em->persist($e);

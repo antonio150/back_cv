@@ -47,6 +47,10 @@ class ExperienceContenu
     #[ORM\ManyToOne(inversedBy: 'ExperienceContenu')]
     private ?Experience $experience = null;
 
+    #[ORM\Column(nullable: true)]
+    #[Groups(["contenuecv:read"])]
+    private ?bool $posteActuel = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -144,6 +148,18 @@ class ExperienceContenu
     public function setExperience(?Experience $experience): static
     {
         $this->experience = $experience;
+
+        return $this;
+    }
+
+    public function isPosteActuel(): ?bool
+    {
+        return $this->posteActuel;
+    }
+
+    public function setPosteActuel(?bool $posteActuel): static
+    {
+        $this->posteActuel = $posteActuel;
 
         return $this;
     }

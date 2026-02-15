@@ -225,7 +225,9 @@ class UpdateContenueCVController extends AbstractController
                             // idem
                         }
                     }
-
+                    $contenu->setPosteActuel(
+                        filter_var($item['posteActuel'] ?? false, FILTER_VALIDATE_BOOLEAN)
+                    );
                     $contenu->setEntreprise($item['entreprise'] ?? null);
                     $contenu->setDuree(isset($item['duree']) ? (int)$item['duree'] : null);
                     $contenu->setTitre($item['titre'] ?? null);

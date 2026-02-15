@@ -11,10 +11,10 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Component\Routing\Attribute\Route;
 
-class ExportCvPdfController extends AbstractController
+class ExportCvPdf3Controller extends AbstractController
 {
-    #[Route('/api/contenue/export-pdf/{id}', name: 'contenue_cv_export_pdf', methods: ['GET'])]
-    public function exportPdf(
+    #[Route('/api/contenue/export-pdf3/{id}', name: 'contenue_cv_export_pdf3', methods: ['GET'])]
+    public function exportPdf3(
         int $id,
         EntityManagerInterface $em
     ): Response {
@@ -37,7 +37,7 @@ class ExportCvPdfController extends AbstractController
         $dompdf = new Dompdf($options);
 
         // Rendu du template Twig (on réutilise presque le même HTML que ton front)
-        $html = $this->renderView('contenue_cv/cv_pdf.html.twig', [
+        $html = $this->renderView('contenue_cv/cv_pdf_3.html.twig', [
             'cv' => $cv,
             'api_url' => rtrim($_ENV['APP_URL'] ?? 'http://localhost:8000', '/'), // ou ton paramètre API_URL
         ]);

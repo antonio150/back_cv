@@ -39,6 +39,7 @@ class FormationContenu
     #[ORM\ManyToOne(inversedBy: 'FormationContenu')]
     private ?Formation $formation = null;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -115,4 +116,5 @@ class FormationContenu
 
         return $this;
     }
+
 }
